@@ -101,7 +101,7 @@ def change_password(request, id): # 비밀번호 수정
                 user.set_password(new_password)
                 user.save()
                 auth.login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-                return redirect('profile')
+                return redirect('/')
             else:
                 messages.error(request, 'Password not same')
         else:
