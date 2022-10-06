@@ -2,6 +2,7 @@
 
 {% block content %}
 {% load static %}
+
 <!-- 바디 영역 -->
 <div class="main_body">
     <div class="left_body">
@@ -61,26 +62,25 @@
                     {% comment %} href="{% url 'tag_cloud' %}">TagCloud</a> {% endcomment %}
                     {% endif %}
             </div>
-           <!-- 피드 댓글 -->
-<div class="feed_reply">
-    <span class="feed_txt"> <b> 닉네임 </b> 댓글 </span>
-    </div>
-    <!-- 피드 댓글달기 -->
-    <form></form>
-    <form method="POST" action="/tweet/comment/{{feed.id}}/">
-        {% csrf_token %}
-        <div style="display: flex; flex-direction: row; justify-content: space-between; padding: 10px 10px 0 10px; border-top: solid 1px lightgray;">
-        <div style="display: flex; flex-direction: row;">
-            <span class="material-icons-outlined">
-            sentiment_satisfied
-        </span>
-    <label for="content"></label>
-    <input id="content" type="text" style="width: 360px; height: 30px; border: none; outline: none;" placeholder="댓글 달기..." name="content" />
-    </div>
-    <input class="link_txt" style="color: #0d6efd; font-size: 12pt; border: none; background-color: #ffffff;" type="submit" />
-    </div>
-    </form>
-    </div>
+            <!-- 피드 댓글 -->
+            <div class="feed_reply">
+                    <span class="feed_txt"> <b> 닉네임 </b>  댓글 </span>
+            </div>
+            <!-- 피드 댓글달기 -->
+            <form></form>
+            <form method="POST" action="/tweet/comment/{{feed.id}}/">
+                {% csrf_token %}
+                <div style="display: flex; flex-direction: row; justify-content: space-between; padding: 10px 10px 0 10px; border-top: solid 1px lightgray;">
+                    <div style="display: flex; flex-direction: row;">
+                        <span class="material-icons-outlined">
+                            sentiment_satisfied
+                        </span>
+                        <label for="content"></label>
+                        <input id="content" type="text" style="width: 360px; height: 30px; border: none; outline: none;" placeholder="댓글 달기..." name="content" />
+                    </div>
+                    <input class="link_txt" style="color: #0d6efd; font-size: 12pt; border: none; background-color: #ffffff;" type="submit" />                  
+                </div>
+            </form>
         </div>
         <!-- 홈 피드 모달 팝업 -->
         <div id="home_feed_modal_{{feed.id}}" class="modal_overlay_home_feed">
@@ -144,8 +144,7 @@
                                                     src="https://avatars.githubusercontent.com/u/113072884?v=4">
                                             </div>
                                             <div style="display: flex; flex-direction: column;">
-                                                <p class="feed_txt" style="padding-left: 10px;"> <b> hanmariyang </b>
-                                                    #가마보코3M #가을캠핑 #텐트추천 #DOD </p>
+                                                <p class="feed_txt" style="padding-left: 10px;"> <b> </b> </p>
                                                 <p class="feed_txt" style="padding-left: 10px;"> 13시간 전 <a
                                                         style="padding-left: 10px;">답글 달기</a></p>
                                             </div>
@@ -275,7 +274,7 @@
                 <div style="display: flex; flex-direction: column; text-align: center;">
                     <span class="home_feed_function_text" style="border: none; color: red;">신고</span>
                     <span class="home_feed_function_text" style="color: red;">팔로우 취소</span>
-                    <span class=" home_feed_function_text">즐겨찾기에 추가</span>
+                    <span class="home_feed_function_text">즐겨찾기에 추가</span>
                     <span class="home_feed_function_text">게시물로 이동</span>
                     <span class="home_feed_function_text">링크 복사</span>
                     {% if feed.user_id == user.nickname %}
