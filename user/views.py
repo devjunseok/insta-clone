@@ -62,10 +62,10 @@ def sign_in_view(request): #로그인
         else: 
             return render(request,'user/signin.html',{'error':'이메일 혹은 패스워드를 확인 해 주세요'})  # 로그인 실패
     elif request.method == 'GET':
-        user = request.user.is_authenticated
-        if user:
+        user = request.user.is_authenticated #과거형
+        if user: #로그인이 되어 있을때
             return redirect('/')
-        else:
+        else: #로그인이 되어 있지 않을때
             return render(request, 'user/signin.html')
 
 
