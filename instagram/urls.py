@@ -6,6 +6,7 @@ from user.views import UploadProfile
 from .settings import MEDIA_URL, MEDIA_ROOT
 from content.views import UploadFeed
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/',include('allauth.urls')),
